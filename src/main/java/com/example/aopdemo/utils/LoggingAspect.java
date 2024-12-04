@@ -48,5 +48,16 @@ public class LoggingAspect {
 		System.out.println("Method executed in "+elapsedTime + " ms" );
 		return result;
 	}
+	
+	
+	@Before("execution(* com.example.aopdemo.services.MyServiceB.*(..))")
+	public void logServiceBMethods() {
+		System.out.println("Logging method executed in service B");
+	}
+	
+	@Before("execution(* com.example.aopdemo.services.*.*(..))")
+	public void logAllServicesMethods() {
+		System.out.println("Logging execution before the method (all)");
+	}
 
 }
